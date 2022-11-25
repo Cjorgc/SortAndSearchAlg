@@ -1,9 +1,14 @@
 package org.example.Sort;
 
 public class Bubble {
-    public static void sort(int [] arr){
+    /*
+        Complexity O(n2)
+     */
+
+    //sort 2 gives better times for n really big
+    public static void sort2(int [] arr){
+        long start = System.nanoTime();
         int swap = 1;
-        int iterations = 0;
         int aux;
         while(swap > 0){
             swap = 0;
@@ -15,19 +20,28 @@ public class Bubble {
                     swap ++;
                 }
             }
-            iterations++;
         }
+        long elapsedTime = System.nanoTime() - start;
+        System.out.println("ElapsedTime : " + elapsedTime);
     }
 
-    public static void sort2(int [] arr){
-        int n = arr.length;
-        for (int i = 0; i < n - 1; i++)
-          for (int j = 0; j < n - i - 1; j++)
-            if (arr[j] > arr[j + 1]) {
-              // swap arr[j+1] and arr[j]
-              int temp = arr[j];
-              arr[j] = arr[j + 1];
-              arr[j + 1] = temp;
+    public static void sort(int[] arr){
+        long startTime = System.nanoTime();
+        boolean swap = false;
+        int aux;
+
+        for(int i = 0 ; i < arr.length - 1; i++){
+            for (int j = 0 ; j < arr.length - 1 - i; j++){
+                if(arr[j] > arr[j + 1]){
+                    aux = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = aux;
+                    swap = true;
+                }
             }
+            if (!swap) break;
+        }
+        long elapsedTime = System.nanoTime() - startTime;
+        System.out.println("Elapsed time : " + elapsedTime);
     }
 }
