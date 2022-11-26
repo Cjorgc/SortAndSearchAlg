@@ -3,6 +3,7 @@ package org.example.Sort;
 public class BubbleRecursive {
     /*
         Complexity O(n * n)
+        Auxiliary Space O(n)
      */
     public static void sort(int[] arr, int n){
         int aux;

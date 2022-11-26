@@ -3,6 +3,7 @@ package org.example.Sort;
 public class Bubble {
     /*
         Complexity O(n2)
+        Auxiliary Space O(1)
      */
 
     //sort 2 gives better times for n really big
